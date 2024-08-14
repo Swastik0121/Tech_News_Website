@@ -21,14 +21,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm run client\" \"npm run server\"",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "client": "react-scripts start",
-    "server": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test":"react-scritps test",
-    "eject" : "react-scripts eject"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
