@@ -3,10 +3,14 @@ const mysql = require('mysql2/promise');
 const connectDB = async () => {
     try {
         const connection = await mysql.createConnection({
-            host: 'sql12.freesqldatabase.com',
-            user: 'sql12725877',
-            password: 'Rf7EsAVwtF',
-            database: 'sql12725877'
+            //host: 'sql12.freesqldatabase.com',
+            //user: 'sql12725877',
+            //password: 'Rf7EsAVwtF',
+            //database: 'sql12725877'
+            host: 'localhost',
+            user: 'root',
+            password: 'swastik2101',
+            database: 'newsdb'
         });
         console.log('MySQL connected');
         return connection;
