@@ -1,5 +1,5 @@
 require('dotenv').config();
-const mysql = require('mysql2/promise'); // Load environment variables
+const mysql = require('mysql2/promise');
 
 const connectDB = async () => {
 
@@ -9,7 +9,6 @@ const connectDB = async () => {
             user: process.env.DB_USER,
             password: process.env.DB_PASS,
             database: process.env.DB_NAME,
-            port: 3336
         });
         console.log('MySQL connected');
         return connection;
