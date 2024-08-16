@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 
@@ -42,7 +43,6 @@ app.get('/news/:id', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`App is running on port ${PORT}`);
 });
