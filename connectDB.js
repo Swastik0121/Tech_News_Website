@@ -12,7 +12,7 @@ const connectDB = async () => {
             user: process.env.DB_USER,
             password: process.env.DB_PASS,
             database: process.env.DB_NAME,
-            connectTimeout: 10000,
+            port: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : 3306 // Default to 3306 if not set
         });
         console.log('MySQL connected');
         return connection;
