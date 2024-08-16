@@ -1,4 +1,5 @@
 const mysql = require('mysql2/promise');
+require('dotenv').config(); // Load environment variables
 
 const connectDB = async () => {
     try {
@@ -7,10 +8,11 @@ const connectDB = async () => {
             //user: 'sql12725877',
             //password: 'Rf7EsAVwtF',
             //database: 'sql12725877'
-            host: 'localhost',
-            user: 'root',
-            password: 'swastik2101',
-            database: 'newsdb'
+            host: process.env.DB_HOST,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASS,
+            database: process.env.DB_NAME,
+            connectTimeout: 10000,
         });
         console.log('MySQL connected');
         return connection;

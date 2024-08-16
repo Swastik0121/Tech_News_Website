@@ -1,11 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea, Container, CssBaseline, Grid} from '@mui/material';
+import { Typography, CardMedia, CardContent, Card, CardActionArea, Container, CssBaseline, Grid} from '@mui/material';
 
 const DataDisplay = ({ endpoint, category }) => {
   const [news, setNews] = useState([]);
