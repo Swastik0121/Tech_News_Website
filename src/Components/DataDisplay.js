@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Typography, CardMedia, CardContent, Card, CardActionArea, Container, CssBaseline, Grid} from '@mui/material';
 const BASE_URL=process.env.REACT_APP_URL;
-console.log(BASE_URL);
+
 const DataDisplay = ({ endpoint, category }) => {
   const [news, setNews] = useState([]);
   const navigate = useNavigate();
