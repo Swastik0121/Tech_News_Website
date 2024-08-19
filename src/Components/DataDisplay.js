@@ -11,6 +11,7 @@ const DataDisplay = ({ endpoint, category }) => {
     const fetchData = async () => {
       try {
         const res = await fetch(`https://tech-news-website-8xgj.onrender.com`);
+        //const res = await fetch(`http://localhost:5000`);
         const data = await res.json();
         setNews(data.news);
         console.log(data);

@@ -8,6 +8,7 @@ import Console from './Components/Console';
 import HpTitle from './Components/HpTitle';
 import NewsDetail from './Components/NewsDetail';
 import Footer from './Components/Footer'
+import About from './Components/About'
 
 const MainContent = () => {
     const location = useLocation();
@@ -19,11 +20,13 @@ const MainContent = () => {
           <Route path="/pc" element={<PC/>} />
           <Route path="/console" element={<Console/>} />
           <Route path="/news/:id" element={<NewsDetail/>} />  {/* Add NewsDetails route */}
+          <Route path="/about" element={<About/>} /> 
         </Routes>
         {/* Conditionally render DataDisplay based on current route */}
         {location.pathname !== '/mobile-phone' &&
          location.pathname !== '/pc' &&
          location.pathname !== '/console' &&
+         location.pathname !== '/about' &&
          !location.pathname.startsWith('/news') && (  // Exclude NewsDetails route 
           <div>
             <HpTitle/>

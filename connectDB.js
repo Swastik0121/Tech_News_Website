@@ -10,8 +10,14 @@ const connectDB = async () => {
             password: process.env.DB_PASS,
             database: process.env.DB_NAME,
         });
+        /*const connection = await mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '',
+            database: 'newsdb',
+        });
         console.log('MySQL connected');
-        return connection;
+        return connection;*/
     } catch (error) {
         console.error('MySQL connection error:', error);
         process.exit(1);

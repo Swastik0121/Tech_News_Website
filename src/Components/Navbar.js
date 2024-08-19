@@ -1,12 +1,13 @@
 import * as React from 'react';
 import {AppBar, Box, Toolbar, Typography, Menu, Container, Button, MenuItem} from '@mui/material';
 import PublicIcon from '@mui/icons-material/Public';
-const pages = ['Mobile Phone', 'PC', 'Console'];
+const pages = ['Mobile Phone', 'PC', 'Console', 'About'];
 
 const pageLinks = {
   'Mobile Phone': '/mobile-phone',
   'PC': '/pc',
   'Console': '/console',
+  'About': '/about'
 };
 
 function Navbar() {
