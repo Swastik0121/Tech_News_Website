@@ -9,7 +9,7 @@ const NewsDetail = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/news/${id}`);  // Fetch news by id
+        const res = await fetch(`https://tech-news-website-8xgj.onrender.com/news/${id}`);  // Fetch news by id
         const data = await res.json();
         setNews(data);  // Set the fetched news data to state
       } catch (error) {
