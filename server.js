@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 //Cors configuration
-app.use(cors({origin:'https://incandescent-beignet-a9e29a.netlify.app'}));
+app.use(cors());
 
 let db;
 
@@ -21,6 +21,9 @@ connectDB().then(connection => {
 
 // Fetch all news
 app.get('/', async (req, res) => {
+    if (!db) {
+        return res.status(500).json({ error: 'Database not connected' });
+    }
     try {
         const [rows] = await db.execute('SELECT * FROM news');
         return res.json({ news: rows });
@@ -32,6 +35,10 @@ app.get('/', async (req, res) => {
 
 // Fetch a single news item by ID
 app.get('/news/:id', async (req, res) => {
+    if (!db) {
+        return res.status(500).json({ error: 'Database not connected' });
+    }
+    
     const { id } = req.params;
 
     try {
