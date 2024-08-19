@@ -1,1 +1,0 @@
-export const REACT_APP_URL = "https://tech-news-website-8xgj.onrender.com/"
