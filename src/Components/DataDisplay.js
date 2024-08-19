@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Typography, CardMedia, CardContent, Card, CardActionArea, Container, CssBaseline, Grid} from '@mui/material';
-const BASE_URL=process.env.REACT_APP_URL;
 
 const DataDisplay = ({ endpoint, category }) => {
   const [news, setNews] = useState([]);
@@ -11,7 +10,7 @@ const DataDisplay = ({ endpoint, category }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`${BASE_URL}`);
+        const res = await fetch(`https://tech-news-website-8xgj.onrender.com`);
         const data = await res.json();
         setNews(data.news);
         console.log(data);
