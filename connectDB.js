@@ -15,9 +15,9 @@ const connectDB = async () => {
             user: 'root',
             password: '',
             database: 'newsdb',
-        });
+        });*/
         console.log('MySQL connected');
-        return connection;*/
+        return connection;
     } catch (error) {
         console.error('MySQL connection error:', error);
         process.exit(1);
