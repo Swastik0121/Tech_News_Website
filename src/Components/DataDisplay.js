@@ -38,7 +38,7 @@ const DataDisplay = ({ endpoint, category }) => {
         }}>
           {news.filter(i => !category || i.category.toLowerCase() === category.toLowerCase()).map(i => (
             <Grid item xs={12} sm={6} md={4} key={i.id}>
-              <Card sx={{ maxWidth: 350, backgroundColor:''}}>
+              <Card sx={{ maxWidth: 350, backgroundColor:'#E5E4E2'}}>
                 <CardActionArea onClick={() => handleCardClick(i.id)}>
                   <CardMedia
                     component="img"

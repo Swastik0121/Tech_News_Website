@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container, Typography, Card, CardMedia, CardContent, CssBaseline } from '@mui/material';
+import { useParams, useNavigate } from 'react-router-dom';
+import { Container, Typography, Card, CardMedia, CardContent, CssBaseline, Button } from '@mui/material';
 
 const NewsDetail = () => {
   const { id } = useParams();  // Get the news id from the URL
   const [news, setNews] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,12 +28,12 @@ const NewsDetail = () => {
   return (
     <>
         <CssBaseline/>
-        <Container maxWidth='lg' sx={{ padding: '20px' }}>
+        <Container maxWidth='lg' sx={{ padding: '20px', color:'#E5E4E2' }}>
         <Card>
             <CardMedia
             component="img"
             height="400"
-            image={news.image}  // Ensure this matches your DB column
+            image={news.image}  
             alt="news image"
             />
             <CardContent>
@@ -43,6 +44,9 @@ const NewsDetail = () => {
                 {news.content}  
             </Typography>
             </CardContent>
+            <Button variant="outlined" onClick={() => navigate(-1)} sx={{mb:2, marginLeft:'20px', color:'#ff5001'} }>
+              Back
+            </Button>
         </Card>
         </Container>    
     </>

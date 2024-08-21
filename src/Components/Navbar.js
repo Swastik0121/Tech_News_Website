@@ -1,6 +1,8 @@
 import * as React from 'react';
+import { useLocation } from 'react-router-dom';
 import {AppBar, Box, Toolbar, Typography, Menu, Container, Button, MenuItem} from '@mui/material';
 import PublicIcon from '@mui/icons-material/Public';
+
 const pages = ['Mobile Phone', 'PC', 'Console', 'About'];
 
 const pageLinks = {
@@ -11,30 +13,32 @@ const pageLinks = {
 };
 
 function Navbar() {
+  const location = useLocation(); //to get the current location
+  const [scrollPosition, setScrollPosition] = React.useState(0);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  React.useEffect(()=>{
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
 
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  },[]);
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
     <>
-      <AppBar position="sticky" sx={{backgroundColor:'#ff5001'}}>
+      <AppBar position="sticky" sx={{ backgroundColor: scrollPosition > 0 ? 'rgba(255, 80, 1, 0.8)' : '#ff5001', transition: 'background-color 0.3s ease-in-out'}}>
         <Container maxWidth='xl'>
           <Toolbar disableGutters>
-            <PublicIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+            <PublicIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: 'white' }} />
             <Typography
               variant="h6"
               noWrap
@@ -46,8 +50,9 @@ function Navbar() {
                 fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.2rem',
-                color: 'inherit',
+                color: 'white',
                 textDecoration: 'none',
+                fontSize:'20px'
               }}
             >
               TechTrends
@@ -92,7 +97,7 @@ function Navbar() {
                 fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.3rem',
-                color: 'inherit',
+                color: 'white',
                 textDecoration: 'none',
               }}
             >
@@ -103,8 +108,10 @@ function Navbar() {
                 <Button
                   key={page}
                   onClick={handleCloseNavMenu }
-                  sx={{ my: 2, color: 'white', display: 'block' }}
                   href={pageLinks[page]}
+                  sx={{ my: 2, 
+                    color: 'white', 
+                    display: 'block', backgroundColor: location.pathname === pageLinks[page] ? 'black' : 'inherit'}}
                 >
                   <Typography textAlign="center">{page}</Typography>
                 </Button>
